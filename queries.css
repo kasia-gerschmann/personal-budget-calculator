@@ -1,0 +1,48 @@
+/**************************/
+/* BELOW 1200px  */
+/**************************/
+@media (max-width: 75em) {
+    body {
+        background-size: auto;
+    }
+}
+
+
+/**************************/
+/* BELOW 944px  */
+/**************************/
+@media (max-width: 59em) {
+    html {
+        font-size: 60%;
+    }
+    .grid--2-col {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .budget-block:last-child {
+        margin-bottom: 10rem;
+    }
+
+    .heading-primary {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .section-budget-details {
+
+
+
+    }
+    .budget-userInputForm input, .budget-userInputForm select {
+width: 90%;
+
+    }
+
+    .btn,
+    .btn.link,
+    .btn.visited
+    {
+
+    }
+
+}
