@@ -1,95 +1,126 @@
 <!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <link rel="stylesheet" href="general.css"/>
-        <link rel="stylesheet" href="queries.css"/>
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="queries.css" />
 
+    <script defer type="module" src="script.js"></script>
 
-        <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
-        <script defer type="module" src="script.js"></script>
-        <title>Budzet - kalkulator</title>
-    </head>
-    <body>
-        <header>
-            <h1 class="heading-primary"><span class="money-left" id="money-left"></span></h1>
-        </header>
-        <section class="section-budget-details grid grid--2-col">
-            <div class="budget-block budget-block--income">
-                <h2 class="heading-secondary">przychody</h2>
-                <div class="budget-container">
-                    <div class="budget-userInput">
-                        <form>
-                            <div class="budget-userInputForm">
-                                <input
-                                        id="income-name"
-                                        type="text"
-                                        placeholder="Nazwa przychodu"
-                                        name="x"
-                                        required
-                                />
-                                <input
-                                        id="income-amount"
-                                        type="number"
-                                        placeholder="Kwota PLN"
-                                        name="y"
-                                        step="0.01"
-                                        required
-                                />
-                            </div>
-                            <button class="btn btn--add" type="submit" onclick="addIncome()">dodaj</button>
-                        </form>
-                    </div>
-                    <div class="budget-list">
-                        <h3 class="heading-tertiary">lista przychodów</h3>
-                        <ul class="details-list" id="income-list"></ul>
-                    </div>
-
-                </div>
-                <p class="summary">Suma przychodów: <span class="list-sum" id="income-sum"></span></p>
-            </div>
-            <div class="budget-block budget-block--spendings">
-                <h2 class="heading-secondary">wydatki</h2>
-                <div class="budget-container">
-                    <div class="budget-userInput">
-                        <form>
-                            <div class="budget-userInputForm">
-                                <input
-                                        id="expense-name"
-                                        type="text"
-                                        placeholder="Nazwa wydatku"
-                                        name="x"
-                                        required
-                                />
-                                <input
-                                        id="expense-amount"
-                                        type="number"
-                                        placeholder="Kwota PLN"
-                                        name="y"
-                                        step="0.01"
-                                        required
-                                />
-                            </div>
-                            <button class="btn btn--add" type="submit" onclick="addExpense()">dodaj</button>
-                        </form>
-                    </div>
-                    <div class="budget-list">
-                        <h3 class="heading-tertiary">lista wydatków</h3>
-                        <ul class="details-list" id="expense-list">
-                        </ul>
-                    </div>
-
-                </div>
-                <p class="summary">Suma wydatków: <span class="list-sum" id="expense-sum"></span></p>
-            </div>
-        </section>
-
-    </body>
+    <title>Budzet - kalkulator</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="heading-primary money-left" id="money-left"></h1>
+    </header>
+    <section class="section-budget-details grid grid--2-col">
+      <div class="budget-block budget-block--income">
+        <h2 class="heading-secondary">przychody</h2>
+        <div class="budget-container">
+          <div class="budget-userInput">
+            <form name="income-form" novalidate>
+              <div class="budget-userInputForm">
+                <input
+                  id="income-name"
+                  type="text"
+                  placeholder="Nazwa przychodu"
+                  name="income-name"
+                  oninput="onIncomeNameInput()"
+                />
+                <div class="error hidden" id="income-name-error"></div>
+                <input
+                  id="income-amount"
+                  type="number"
+                  placeholder="Kwota PLN"
+                  name="income-amount"
+                  step="0.01"
+                  min="0.01"
+                  oninput="onIncomeAmountInput()"
+                />
+                <div class="error hidden" id="income-amount-error"></div>
+              </div>
+              <button
+                class="btn btn--add no-pointer-events"
+                type="button"
+                id="income-btn"
+                onclick="addIncome()"
+              >
+                dodaj
+              </button>
+            </form>
+          </div>
+          <div class="budget-list">
+            <h3 class="heading-tertiary">lista przychodów</h3>
+            <ul class="details-list" id="income-list"></ul>
+          </div>
+        </div>
+        <p class="summary">
+          Suma przychodów: <span class="list-sum" id="income-sum"></span>
+        </p>
+      </div>
+      <div class="budget-block budget-block--spendings">
+        <h2 class="heading-secondary">wydatki</h2>
+        <div class="budget-container">
+          <div class="budget-userInput">
+            <form name="expense-form" novalidate>
+              <div class="budget-userInputForm">
+                <input
+                  id="expense-name"
+                  type="text"
+                  placeholder="Nazwa wydatku"
+                  name="expense-name"
+                  oninput="onExpenseNameInput()"
+                  required
+                />
+                <div class="error hidden" id="expense-name-error"></div>
+                <input
+                  id="expense-amount"
+                  type="number"
+                  placeholder="Kwota PLN"
+                  name="expense-amount"
+                  step="0.01"
+                  min="0.01"
+                  oninput="onExpenseAmountInput()"
+                  required
+                />
+                <div class="error hidden" id="expense-amount-error"></div>
+              </div>
+              <button
+                class="btn btn--add no-pointer-events"
+                type="button"
+                id="expense-btn"
+                onclick="addExpense()"
+              >
+                dodaj
+              </button>
+            </form>
+          </div>
+          <div class="budget-list">
+            <h3 class="heading-tertiary">lista wydatków</h3>
+            <ul class="details-list" id="expense-list"></ul>
+          </div>
+        </div>
+        <p class="summary">
+          Suma wydatków: <span class="list-sum" id="expense-sum"></span>
+        </p>
+      </div>
+    </section>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>

@@ -1,48 +1,38 @@
-/**************************/
-/* BELOW 1200px  */
-/**************************/
 @media (max-width: 75em) {
-    body {
-        background-size: auto;
-    }
+  body {
+    background-size: auto;
+  }
 }
 
-
-/**************************/
-/* BELOW 944px  */
-/**************************/
 @media (max-width: 59em) {
-    html {
-        font-size: 60%;
-    }
-    .grid--2-col {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  html {
+    font-size: 60%;
+  }
 
-    .budget-block:last-child {
-        margin-bottom: 10rem;
-    }
+  .grid--2-col {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    .heading-primary {
-        padding-left: 5rem;
-        padding-right: 5rem;
-    }
+  .budget-block:last-child {
+    margin-bottom: 10rem;
+  }
 
-    .section-budget-details {
+  .heading-primary {
+    font-size: 4.8rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
 
+  .budget-userInputForm input,
+  .budget-userInputForm select {
+    width: 90%;
+  }
 
-
-    }
-    .budget-userInputForm input, .budget-userInputForm select {
-width: 90%;
-
-    }
-
-    .btn,
-    .btn.link,
-    .btn.visited
-    {
-
-    }
-
+  .budget-block:hover,
+  .budget-userInput input:hover,
+  .list-item:hover,
+  .btn--add:hover {
+    transform: none;
+    letter-spacing: normal;
+  }
 }

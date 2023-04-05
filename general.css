@@ -1,296 +1,264 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-    /* font-size: 10px; */
-
-    /* 10px / 16px = 0.625 = 62.5% */
-    /* Percentage of user's browser font-size setting */
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: "Rubik", sans-serif;
-    line-height: 1;
-    font-weight: 400;
-    color: #141a2f;
-    background: url("img/header.jpg") no-repeat center center fixed;
-    background-size: cover;
-
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #141a2f;
+  background: url("img/header.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
-
 header {
-    /* background-color: orangered;*/
-    width: 100%;
-    padding: 9.6rem 0 2.4rem 0;
-    text-align: center;
-    margin-bottom: 6.4rem;
-    color: white;
-
-
+  width: 100%;
+  padding: 9.6rem 0 2.4rem 0;
+  text-align: center;
+  margin-bottom: 6.4rem;
+  color: white;
 }
 
 .heading-primary {
-    font-size: 5.2rem;
-    line-height: 1.05;
-    margin-bottom: 3.2rem;
-    letter-spacing: -0.5px;
-    font-weight: 700;
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+  overflow-wrap: break-word;
 }
 
-
 .heading-secondary {
-    font-size: 3.4rem;
-    line-height: 1.05;
-    margin-top: 1.2rem;
-    margin-bottom: 3.2rem;
-    letter-spacing: -0.5px;
-    font-weight: 700;
-
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin: 1.2rem 0 3.2rem 0;
+  letter-spacing: -0.5px;
+  font-weight: 700;
 }
 
 .heading-tertiary {
-    font-size: 2.8rem;
-    line-height: 1.05;
-    margin-bottom: 1.6rem;
-    letter-spacing: -0.5px;
-    font-weight: 500;
+  font-size: 2.8rem;
+  line-height: 1.05;
+  margin-bottom: 1.6rem;
+  letter-spacing: -0.5px;
+  font-weight: 500;
 }
-
 
 .section-budget-details {
-    width: 80%;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+  width: 80%;
+  display: block;
+  margin: 0 auto 0 auto;
 }
-
 
 .grid {
-    display: grid;
-    column-gap: 6.4rem;
-    row-gap: 9.6rem;
-    align-items: stretch;
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  align-items: stretch;
 }
 
-
 .grid--2-col {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .budget-block {
-    border: #383b4b 1px solid;
-    padding: 1.2rem;
-    background-color: rgba(188, 192, 202, 0.7);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding-left: 3.2rem;
-    display: flex;
-    flex-direction: column;
+  border: #383b4b 1px solid;
+  padding: 1.2rem;
+  background-color: rgba(188, 192, 202, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding-left: 3.2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .budget-block:hover {
-    transform: scale(1.1);
-    transition: all 0.7s;
+  transform: scale(1.1);
+  transition: all 0.7s;
 }
 
 .budget-block:not(:hover) {
-    transition: all 0.7s;
+  transition: all 0.7s;
 }
 
-
 .budget-container {
-    width: auto;
-    flex-grow: 1;
-
+  width: auto;
+  flex-grow: 1;
 }
 
 .budget-userInput {
-    margin-bottom: 2.4rem;
+  margin-bottom: 2.4rem;
 }
 
 .budget-userInput input:hover {
-    transform: scale(1.05, 1);
-    transition: all 0.7s;
+  letter-spacing: -0.5px;
+  transition: all 0.7s;
 }
 
 .budget-userInput input:not(:hover) {
-    transition: all 0.7s;
+  transition: all 0.7s;
 }
 
 .budget-userInputForm input,
 .budget-userInputForm select {
-    font-family: inherit;
-    color: inherit;
-    border: none;
-    width: 60%;
-    border-radius: 9px;
-    margin-top: 1.2rem;
-    background-color: #fdf2e9;
-    padding: 1rem;
-    font-size: 1.6rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  width: 60%;
+  border-radius: 9px;
+  margin-top: 1.2rem;
+  background-color: #fdf2e9;
+  padding: 1rem;
+  font-size: 1.6rem;
 }
-
 
 .budget-list {
-    margin: 0 0;
-    width: 100%;
+  margin: 0 0;
+  width: 100%;
 }
-
 
 .btn,
 .btn:link,
 .btn:visited {
-    display: inline-block;
-    margin-top: 1.8rem;
-
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 300;
-    padding: 0.8rem 1.6rem;
-    border-radius: 3px;
-
-    /* Only necessary for .btn */
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-
-
-    /* Put transition on original "state" */
-    /* transition: background-color 0.3s; */
-    transition: all 0.3s;
+  display: inline-block;
+  margin-top: 1.8rem;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 300;
+  padding: 0.8rem 1.6rem;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s;
 }
 
 .btn--add,
 .btn--add:link,
 .btn-add:visited {
-    background-color: #171f37;
-    color: white;
-
+  background-color: #171f37;
+  color: white;
 }
 
 .btn--add:hover {
-    background-color: seagreen;
-    transform: scale(1.05, 1);
-    transition: all 0.3s;
+  background-color: seagreen;
+  transform: scale(1.05, 1);
+  transition: all 0.3s;
 }
 
-
 .budget-list {
-    display: inline-block;
-    flex-direction: column;
-    gap: 1.6rem;
-    margin-top: 3.6rem;
-
+  display: inline-block;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 3.6rem;
 }
 
 .details-list {
-    margin-left: 1rem;
-    margin-bottom: 4.6rem;
-    overflow-y: scroll;
-    max-height: 120px;
-    min-height: 100px;
-
+  margin: 0 0 4.6rem 1rem;
+  overflow-y: scroll;
+  max-height: 120px;
+  min-height: 100px;
 }
 
 .details-list::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 .details-list::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
 
 .details-list::-webkit-scrollbar-hover {
-    background: #171e37;
-    border-radius: 8px;
-    cursor: grab;
+  background: #171e37;
+  border-radius: 8px;
+  cursor: grab;
 }
 
 .details-list::-webkit-scrollbar-thumb {
-    background: #1a233f;
-    border-radius: 10px;
-    transition: all 0.3s;
+  background: #1a233f;
+  border-radius: 10px;
+  transition: all 0.3s;
 }
 
 .list-item {
-    margin: 2rem 2rem 2rem 2rem;
-    /*margin: 10px 0;*/
-    font-size: 1.8rem;
-    /*!**! display: flex;
-    align-items: center;
-    line-height: 1.2; !**!*/
+  margin: 2rem;
+  font-size: 1.8rem;
+}
+
+.list-sum {
+  overflow-wrap: break-word;
 }
 
 .list-item:hover {
-    font-weight: 800;
-    font-size: 1.8rem;
-    transition: all 0.6s;
-
+  letter-spacing: -0.5px;
+  transition: all 0.6s;
 }
 
 .list-item__container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 li a {
-    font-size: 1.6rem;
-    /*    display: inline-block;*/
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    margin-right: 5px;
-    /*  float: right;*/
-    /*
-    justify-content: center;
-    align-items: center;
-    */
-
-
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-right: 5px;
 }
 
 li a:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .action-delete:hover {
-    background-color: #212C4F;
-    color: red;
-    transition: all 0.3s;
+  background-color: #212c4f;
+  color: red;
+  transition: all 0.3s;
 }
 
 .action-edit:hover {
-    transition: all 0.3s;
-    color: white;
-    background-color: #212C4F;
+  transition: all 0.3s;
+  color: white;
+  background-color: #212c4f;
 }
 
-
 .summary {
-    font-size: 2.6rem;
-    margin-bottom: 2.6rem;
-    font-weight: 600;
+  font-size: 2.6rem;
+  margin-bottom: 2.6rem;
+  font-weight: 600;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 form:invalid > button {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-ion-icon {
-    pointer-events: none;
+.no-pointer-events {
+  pointer-events: none;
 }
 
+.error {
+  color: red;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
 
+.icons-container {
+  display: flex;
+}
