@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
 
     <script defer type="module" src="script.js"></script>
 
-    <title>Budzet - kalkulator</title>
+    <title>Personal budget - calculator</title>
   </head>
   <body>
     <header>
@@ -24,7 +24,7 @@
     </header>
     <section class="section-budget-details grid grid--2-col">
       <div class="budget-block budget-block--income">
-        <h2 class="heading-secondary">przychody</h2>
+        <h2 class="heading-secondary">income</h2>
         <div class="budget-container">
           <div class="budget-userInput">
             <form name="income-form" novalidate>
@@ -32,7 +32,7 @@
                 <input
                   id="income-name"
                   type="text"
-                  placeholder="Nazwa przychodu"
+                  placeholder="Income name"
                   name="income-name"
                   oninput="onIncomeNameInput()"
                   required
@@ -41,7 +41,7 @@
                 <input
                   id="income-amount"
                   type="number"
-                  placeholder="Kwota PLN"
+                  placeholder="Amount in EUR"
                   name="income-amount"
                   step="0.01"
                   min="0.01"
@@ -56,21 +56,21 @@
                 id="income-btn"
                 onclick="addIncome()"
               >
-                dodaj
+                add
               </button>
             </form>
           </div>
           <div class="budget-list">
-            <h3 class="heading-tertiary">lista przychodów</h3>
+            <h3 class="heading-tertiary">income list</h3>
             <ul class="details-list" id="income-list"></ul>
           </div>
         </div>
         <p class="summary">
-          Suma przychodów: <span class="list-sum" id="income-sum"></span>
+          Total income: <span class="list-sum" id="income-sum"></span>
         </p>
       </div>
       <div class="budget-block budget-block--spendings">
-        <h2 class="heading-secondary">wydatki</h2>
+        <h2 class="heading-secondary">spending</h2>
         <div class="budget-container">
           <div class="budget-userInput">
             <form name="expense-form" novalidate>
@@ -78,7 +78,7 @@
                 <input
                   id="expense-name"
                   type="text"
-                  placeholder="Nazwa wydatku"
+                  placeholder="Spending name"
                   name="expense-name"
                   oninput="onExpenseNameInput()"
                   required
@@ -87,7 +87,7 @@
                 <input
                   id="expense-amount"
                   type="number"
-                  placeholder="Kwota PLN"
+                  placeholder="Amount in EUR"
                   name="expense-amount"
                   step="0.01"
                   min="0.01"
@@ -102,17 +102,17 @@
                 id="expense-btn"
                 onclick="addExpense()"
               >
-                dodaj
+                add
               </button>
             </form>
           </div>
           <div class="budget-list">
-            <h3 class="heading-tertiary">lista wydatków</h3>
+            <h3 class="heading-tertiary">spending list</h3>
             <ul class="details-list" id="expense-list"></ul>
           </div>
         </div>
         <p class="summary">
-          Suma wydatków: <span class="list-sum" id="expense-sum"></span>
+          Total spending: <span class="list-sum" id="expense-sum"></span>
         </p>
       </div>
     </section>

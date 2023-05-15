@@ -23,7 +23,7 @@ const expenses = [];
 const formatAmount = (amount) => {
   return amount.toLocaleString(navigator.language, {
     style: "currency",
-    currency: "PLN",
+    currency: "EUR",
   });
 };
 
@@ -32,7 +32,7 @@ const onPageLoad = () => {
   const totalSumEl = document.querySelector("#money-left");
   const incomeSumEl = document.querySelector("#income-sum");
   const expenseSumEl = document.querySelector("#expense-sum");
-  totalSumEl.textContent = `Możesz jeszcze wydać ${zeroFormatted}`;
+  totalSumEl.textContent = `You can spend ${zeroFormatted} more`;
   incomeSumEl.textContent = zeroFormatted;
   expenseSumEl.textContent = zeroFormatted;
 };
@@ -104,7 +104,7 @@ const addEntry = (type) => {
   updateSum(type);
   updateTotalSum();
   const button = document.getElementById(`${entry.type}-btn`);
-  button.textContent = "dodaj";
+  button.textContent = "add";
 };
 
 const calculateEntriesSum = (type) => {
@@ -136,7 +136,7 @@ const editEntry = (entry, nameInput, amountInput) => {
   nameInput.value = entry.name;
   amountInput.value = entry.amount;
   deleteEntryWithoutRecalculation(entry);
-  button.textContent = "zmień";
+  button.textContent = "edit";
 };
 
 const getEntriesByType = (type) => {
@@ -150,13 +150,13 @@ const updateTotalSum = () => {
   const finalSumFormatted = formatAmount(finalSum);
   if (finalSum > 0) {
     headerSumEl.style.color = "white";
-    headerSumEl.textContent = `Możesz jeszcze wydać ${finalSumFormatted}`;
+    headerSumEl.textContent = `You can spend ${finalSumFormatted} more`;
   } else if (finalSum < 0) {
     headerSumEl.style.color = "rgb(190,61,56)";
-    headerSumEl.textContent = `Bilans jest ujemny. Jesteś na minusie ${finalSumFormatted}`;
+    headerSumEl.textContent = `Negative balance: ${finalSumFormatted}`;
   } else {
     headerSumEl.style.color = "white";
-    headerSumEl.textContent = `Bilans wynosi zero`;
+    headerSumEl.textContent = `Your balance is zero`;
   }
 };
 
@@ -187,7 +187,7 @@ function onNameInput(type) {
 
   if (!name || !name.trim()) {
     invalid = true;
-    errorText += `Nazwa nie może być pusta!`;
+    errorText += `The name cannot be empty`;
   }
 
   const nameError = document.getElementById(`${type}-name-error`);
@@ -211,17 +211,17 @@ function onAmountInput(type) {
 
   if (!amount || Number(amount) === 0) {
     invalid = true;
-    errorText += `Kwota nie może być pusta!`;
+    errorText += `The amount cannot be empty!`;
   }
 
   if (amount < 0) {
     invalid = true;
-    errorText += `Kwota nie może być ujemna!`;
+    errorText += `The amount cannot be negative!`;
   }
 
   if (amount > 1000000000) {
     invalid = true;
-    errorText += `Kwota nie może przekraczać PLN 1MLD!`;
+    errorText += `The amount cannot be higher than EUR 1BN!`;
   }
 
   const amountError = document.getElementById(`${type}-amount-error`);
